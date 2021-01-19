@@ -1,0 +1,17 @@
+class Solution
+{
+    public int countPaths(int V, ArrayList<ArrayList<Integer>> adj, int source, int destination)
+    {
+        return dfs(source,adj,destination);
+    }
+    public static int dfs(int source, ArrayList<ArrayList<Integer>> adj,int dest){
+        int c=0;
+        if(source==dest){
+            return 1;
+        }
+        for(int i:adj.get(source)){
+            c+=dfs(i,adj,dest);
+        }
+        return c;
+    }
+}
